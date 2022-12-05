@@ -6,8 +6,8 @@ import json
 import uuid
 ######################
 
-system = 'DEV'
-#system = 'QAS'
+#system = 'DEV'
+system = 'PRD'
 #system = 'DEV'
 company = '00000000000000111'
 environment = 'console'
@@ -79,22 +79,22 @@ def getGenDataList():
     jsonResponse = base64.b64decode(jsonResponse[0]['data'])
     return json.loads(jsonResponse.decode('utf-8'))
 
-upstreamurl = "https://api-ups2-test.greentree.io/UPS/JCWorkCentre?pageSize=9999"
+upstreamurl = "https://api-ups2-live.greentree.io/UPS/JCWorkCentre?pageSize=9999"
 #url = "https://api-ups2-test.greentree.io/UPS/JCWorkCentre?pageSize=9999"
 
 if environment == "console":
-    toknsource = 'https://console.tokntechnology.com:50000/Connect/api/genDataService?'
+    toknsource = 'https://console.tokntechnology.com:50001/Connect/api/genDataService?'
 if environment == "demo":
     toknsource = 'http://demo.tokntechnology.com:50000/Connect/api/genDataService?'
 
 if system == "PRD":
-    urlHeaders = {'ApiKey': '500418', 'Authorization': 'Basic YXBpdG9rbjo2Xmg2Jj40QSZnK1hHWGdn', 'Accept': 'application/json'}
+    urlHeaders = {'ApiKey': '500418', 'Authorization': 'Basic YXBpdG9rbjoyTVVTaHRCcmRtQzIzR3ZV', 'Accept': 'application/json'}
     toknheaders = {'Authorization':'Bearer MDAwMDAwMDAwMDAwMDAxMTFQUkQ=:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUT0tOIn0.XVRBilmk0EL0mWo_VX1dH4cYa37ohYmONbdvwGRSbHw','replaceListManager':'Y'}
 elif system == 'DEV':
-    urlHeaders = {'ApiKey': '500418', 'Authorization': 'Basic YXBpdG9rbjo2Xmg2Jj40QSZnK1hHWGdn', 'Accept': 'application/json'}
+    urlHeaders = {'ApiKey': '500418', 'Authorization': 'Basic YXBpdG9rbjpUMGtuQVBJVDBrbkFQSQ==', 'Accept': 'application/json'}
     toknheaders = {'Authorization': 'Bearer MDAwMDAwMDAwMDAwMDAxMTFERVY=:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUT0tOIn0.VlsxzVMfPCIN0Q3XEe-69xi84pfXPe9a9Q14aR4CZsI','replaceListManager':'Y'}
 else:
-    urlHeaders = {'ApiKey':'500418', 'Authorization':'Basic YXBpdG9rbjo2Xmg2Jj40QSZnK1hHWGdn','Accept':'application/json'}
+    urlHeaders = {'ApiKey':'500418', 'Authorization':'Basic YXBpdG9rbjpUMGtuQVBJVDBrbkFQSQ==','Accept':'application/json'}
     toknheaders = {'Authorization': 'Bearer MDAwMDAwMDAwMDAwMDAxMTFRQVM=:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUT0tOIn0.DgVLqLG__EMwoAmm6mlxaeMTR5Zo6YhbJp2k08l5xRg','replaceListManager':'Y'}
 
 
